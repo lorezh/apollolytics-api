@@ -20,7 +20,8 @@ GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID", "default_cse_id")
 GOOGLE_APIKEY = os.getenv("GOOGLE_API_KEY", "default_api_key")
 
 # Load excluded URLs from a CSV file
-fake = pd.read_csv("llm/ressources/mediabiasfactcheck_fakenews.csv")
+file_path = os.path.join(os.path.dirname(__file__), "ressources", "mediabiasfactcheck_fakenews.csv")
+fake = pd.read_csv(file_path)
 fake = fake[fake["Traffic/Popularity"] != "Minimal Traffic"]
 excluded_sites = fake["source_link"].apply(lambda x: x.split("//")[-1].split("www.")[-1].split("/")[0])
 
