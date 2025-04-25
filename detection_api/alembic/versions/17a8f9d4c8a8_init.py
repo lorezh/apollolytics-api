@@ -13,7 +13,7 @@ from alembic import op
 
 # revision identifiers, used by Alembic.
 revision: str = '17a8f9d4c8a8'
-down_revision: Union[str, None] = None
+down_revision: Union[str, None] = '678a038bae9b'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -24,18 +24,12 @@ def generate_uuid():
 
 
 def upgrade() -> None:
-    # Create the table if it doesn't exist
-    op.create_table(
-        'analysis_results',
-        sa.Column('id', sa.String(), primary_key=True, nullable=False),
-        sa.Column('user_id', sa.String(), nullable=True),
-        sa.Column('model_name', sa.String(), nullable=True),
-        sa.Column('text', sa.Text(), nullable=True),
-        sa.Column('contextualize', sa.Boolean(), nullable=True),
-        sa.Column('result', sa.Text(), nullable=True),
-        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
-        sa.Column('is_deleted', sa.Boolean(), nullable=False, server_default='false'),
-    )
+    # Add 'id' column as nullable first
+    op.add_column('analysis_results', sa.Column('id', sa.String(), nullable=True))
+    op.add_column('analysis_results',
+                  sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()))
+    op.add_column('analysis_results', sa.Column('is_deleted', sa.Boolean(), nullable=False, server_default='false'))
+
     # Populate 'id' column for existing rows
     connection = op.get_bind()
     results = connection.execute(sa.text("SELECT user_id FROM analysis_results")).fetchall()
