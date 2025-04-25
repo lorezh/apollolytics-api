@@ -1,3 +1,8 @@
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import asyncio
 import json
 import logging
@@ -6,14 +11,11 @@ from typing import Literal, Union, Optional
 
 import logfire
 import uvicorn
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from starlette.websockets import WebSocketState
 
-import dependencies
-from database import AnalysisResult
-from database.repo import Repo
 from llm.contextualizer import Contextualizer
 from llm.propaganda_detection import OpenAITextClassificationPropagandaInference
 
@@ -37,7 +39,7 @@ app.add_middleware(
 
 # Define the request model
 class Request(BaseModel):
-    user_id: Optional[str] = None  # Add user_id field
+    user_id: Optional[str] = None
     model_name: str
     text: str
     contextualize: Union[Literal["Auto"], bool] = False
@@ -98,7 +100,7 @@ async def detect_propaganda_async(request):
     return analysis_results
 
 
-async def handle_request(data, websocket, repo):
+async def handle_request(data, websocket):
     request = Request.parse_raw(data)
     with logfire.span("handle_request user_id={user_id} model_name={model_name} contextualize={contextualize}",
                       user_id=request.user_id,
@@ -159,25 +161,14 @@ async def handle_request(data, websocket, repo):
         # Step 4: Close the WebSocket connection after all responses are sent
         await websocket.close()
 
-        # Step 5: Save the full response to the database
-        analysis_result = AnalysisResult(
-            user_id=user_id,
-            model_name=request.model_name,
-            text=request.text,
-            contextualize=request.contextualize,
-            result=json.dumps(analysis_results)
-        )
-        repo.create(analysis_result)
-
 
 @app.websocket("/ws/analyze_propaganda")
-async def websocket_endpoint(websocket: WebSocket,
-                             repo: Repo = Depends(dependencies.repo)):
+async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     logging.info("WebSocket connection accepted")
     try:
         data = await websocket.receive_text()
-        await handle_request(data, websocket, repo)
+        await handle_request(data, websocket)
     except WebSocketDisconnect:
         logging.info("Client disconnected")
     except Exception as e:
