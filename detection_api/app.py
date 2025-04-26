@@ -20,6 +20,7 @@ import dependencies
 from database import AnalysisResult
 from database.repo import Repo
 from llm.contextualizer import Contextualizer
+from llm.memeifier import Memeifier
 from llm.propaganda_detection import OpenAITextClassificationPropagandaInference
 
 # Configure logging
@@ -78,6 +79,27 @@ async def process_entry(entry, contextualizer: Contextualizer, auto=False):
 
     return entry
 
+# Define a function to process each entry in the analysis results
+async def process_entry_memeify(entry, memeifier: Memeifier, contextualizer: Contextualizer):
+    entry["meme_contextualize_status"] = "success"
+
+    # Process the entry with the contextualizer
+    try:
+        result = await contextualizer.process_statement(entry["location"], memeify=True)
+        if result["status"] == "success":
+            entry["meme_contextualize_status"] = "success"
+            entry["meme_contextualize"] = result["output"]
+        else:
+            entry["meme_contextualize_status"] = "error"
+            entry["meme_contextualize_error"] = result["error"]
+    except Exception as e:
+        logging.error(f"An error occurred during contextualization: {e}", exc_info=True)
+        entry["meme_contextualize_status"] = "error"
+        entry["meme_contextualize_error"] = f"Error: {str(e)}"
+    
+    # Process the entry with the memeifier
+    return entry
+
 
 # Define a function to contextualize the analysis results
 async def contextualize(request, analysis_results):
@@ -96,6 +118,20 @@ async def contextualize(request, analysis_results):
         return True
     return False
 
+# Define a function to memeify the analysis results
+async def memeify(request, analysis_results):
+    if request.memeify == True:
+        memeifier = Memeifier(model_name=request.model_name)
+        contextualizer = Contextualizer(model_name=request.model_name)
+        tasks = []
+
+        for category, entries in analysis_results.items():
+            for entry in entries:
+                tasks.append(process_entry_memeify(entry, memeifier, contextualizer))
+
+        await asyncio.gather(*tasks)
+        return True
+    return False
 
 # Define the main route for the FastAPI application
 async def detect_propaganda_async(request):
@@ -161,6 +197,26 @@ async def handle_request(data, websocket, repo):
                 "type": "contextualization",
                 "status": "error",
                 "message": f"An error occurred during contextualization: {str(e)}"
+            }))
+        
+        # Step 3: If memeify is enabled, process it and send the updated entries
+        try:
+            was_memeified = await memeify(request, analysis_results)
+            if was_memeified:
+                logging.info(f"Memeify analysis results: {analysis_results}")
+                await websocket.send_text(json.dumps({
+                    "user_id": user_id,
+                    "type": "memeification",
+                    "status": "success",
+                    "data": analysis_results
+                }))
+        except Exception as e:
+            logging.error(f"An error occurred during memeification: {e}", exc_info=True)
+            await websocket.send_text(json.dumps({
+                "user_id": user_id,
+                "type": "memeification",
+                "status": "error",
+                "message": f"An error occurred during memeification: {str(e)}"
             }))
 
         # Step 4: Close the WebSocket connection after all responses are sent

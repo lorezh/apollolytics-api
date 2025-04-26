@@ -111,6 +111,59 @@ Thought:{agent_scratchpad}"""
     prompt.template = prompt_template
     return prompt
 
+def get_prompt_memeify(date, originator):
+    prompt = hub.pull("hwchase17/react")
+
+    prompt_template = """You are an expert contextualizer tasked to expanding and enriching understanding around potentially misleading statements to make sure users are safe and well informed.
+Your role is to provide balanced, accurate, concise, and helpful context about a given statement.
+
+You have access to the following tools for your research:
+<tools>
+{tools}
+</tools>
+
+You may use each tool up to three times.
+
+Use the following format:
+
+Question: the input question you must answer
+Thought: you should always think about what to do
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat 3 times)
+Thought: I now have sufficient information to provide context for the user.
+Final Answer: The context demanded by the user.
+
+**Final Response Format:**
+- **Context:** (Provide a precise, concise, and factual summary of the topic, incorporating context from the sources)
+- **Joke:** (Write a joke or a funny comment about the statement, but make sure it is not offensive or inappropriate)
+
+**Example Final Answer in case no results are found:**
+Context: No relevant information found.
+Joke: The statement may not be widely discussed or may not have been indexed by search engines.
+
+
+**Example Final Answer:**  
+Context: Electric vehicles (EVs) produce fewer greenhouse gas emissions over their lifetime compared to gasoline-powered cars, according to studies. EVs emit no tailpipe emissions and are more efficient in energy use. However, their production, particularly the manufacturing of batteries, involves significant environmental impact due to energy-intensive processes and raw material extraction.
+Joke: Why did the electric car break up with the gas guzzler? Because it couldn't handle the emissions drama!
+    
+Begin your analysis now!
+
+Question:
+Contextualise the statement: '{statement}'{originator_section}{date_section}
+Thought:{agent_scratchpad}"""
+    date_section = ""
+    originator_section = ""
+    if date:
+        date_section = " on {date}"
+    if originator:
+        originator_section = " made by {originator}"
+    prompt_template = prompt_template.replace("{date_section}", date_section)
+    prompt_template = prompt_template.replace("{originator_section}", originator_section)
+
+    prompt.template = prompt_template
+    return prompt
 
 class Contextualizer:
     def __init__(self, model_name, cse_id=GOOGLE_CSE_ID, api_key=GOOGLE_APIKEY):
@@ -177,7 +230,7 @@ class Contextualizer:
         results_lst = output.content.split("\n")
         return results_lst
 
-    async def process_statement(self, statement, date=None, originator=None):
+    async def process_statement(self, statement, date=None, originator=None, memeify=False):
         """
         Processes a given statement to perform contextualization, utilizing both Google Custom Search and a language model.
 
@@ -205,7 +258,7 @@ class Contextualizer:
             description=google_description,
         )
 
-        prompt = get_prompt(date, originator)
+        prompt = get_prompt_memeify(date, originator) if memeify else get_prompt(date, originator)
 
         try:
             tools = [google_private]
@@ -225,6 +278,14 @@ class Contextualizer:
             result = await agent_executor.ainvoke(agent_executor_input)
             final_answer = result["output"]
 
+            # Return final answer for memeification process
+            if(memeify):
+                logging.info(f"meme contextualizer took {time.time() - start_time} seconds")
+                return {
+                    "output": final_answer,
+                    "status": "success"
+                }     
+                   
             # Get the link mapping from the search tool
             link_mapping = google_search_tool.get_link_mapping()
 
