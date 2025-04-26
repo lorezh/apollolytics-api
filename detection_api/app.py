@@ -46,6 +46,7 @@ class Request(BaseModel):
     model_name: str
     text: str
     contextualize: Union[Literal["Auto"], bool] = False
+    memeify: bool = False
 
 
 # Define a function to process each entry in the analysis results
@@ -105,10 +106,11 @@ async def detect_propaganda_async(request):
 
 async def handle_request(data, websocket, repo):
     request = Request.parse_raw(data)
-    with logfire.span("handle_request user_id={user_id} model_name={model_name} contextualize={contextualize}",
+    with logfire.span("handle_request user_id={user_id} model_name={model_name} contextualize={contextualize} memeify={memeify}",
                       user_id=request.user_id,
                       model_name=request.model_name,
-                      contextualize=request.contextualize):
+                      contextualize=request.contextualize,
+                      memeify=request.memeify):
         logging.info(f"Received data: {data}")
 
         # Generate or retrieve user_id
@@ -170,6 +172,7 @@ async def handle_request(data, websocket, repo):
             model_name=request.model_name,
             text=request.text,
             contextualize=request.contextualize,
+            memeify=request.memeify,
             result=json.dumps(analysis_results)
         )
         repo.create(analysis_result)

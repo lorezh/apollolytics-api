@@ -10,6 +10,7 @@ class AnalysisResult(Base):
     model_name = Column(String)
     text = Column(Text)
     contextualize = Column(String)
+    memeify = Column(String) 
     result = Column(Text)  # Store the result as a JSON string
 
     def to_dict(self):
@@ -19,5 +20,6 @@ class AnalysisResult(Base):
             'model_name': self.model_name,
             'text': self.text,
             'contextualize': self.contextualize,
+            'memeify': self.memeify,
             'result': self.result
         }

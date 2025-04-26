@@ -8,7 +8,8 @@ async def connect_to_websocket(client_id):
         request_data = {
             "model_name": "gpt-4o",  # Example model
             "text": "An apparent Israeli airstrike on Monday morning hit central Beirut for the first time since the 2006 war, according to reporters on the ground in the city. A week-long bombing campaign on Lebanon has decimated the leadership of Hezbollah and sent hundreds of thousands of civilians fleeing north. The strike in the capital's Kola district killed three leaders of the Popular Front for the Liberation of Palestine (PFLP), the organization has confirmed.",
-            "contextualize": True
+            "contextualize": True,
+            "memeify": False
         }
 
         # Send the request data
