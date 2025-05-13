@@ -17,7 +17,7 @@
         "template_id": "181913649",
         "template_structure": "Two-panel format: 1) Drake rejecting with a disapproving gesture on the left and on the right the caption representing the disapproving; 2) Drake approving with a pleased expression and gesture on the left and on the right the caption representing the approving.",
         "meme_output_json_structure": "{text0: 'text of the joke that suits the image of Drake rejecting with a disapproving gesture', text1: 'Text of the joke that suits the image of Drake approving with a pleased expression and gesture'}",
-        "frame":"This meme uses the well-known <Drake Hotline Bling> format to highlight a shift in argumentative behavior, particularly in online or emotionally charged discussions. It visually contrasts two forms of argumentation: rejecting arguments that directly address the topic at hand, while embracing those that target the individual participant. By doing so, the meme critiques the tendency to abandon reasoned, issue-based debate in favor of personal attacks—commonly referred to as ad hominem arguments. Structurally, the meme delivers its message through juxtaposition and irony. It subverts expected norms by presenting logical discourse as unfavorable and emotionally driven attacks as preferable. This reversal serves as a commentary on how modern discourse, especially in digital or polarized spaces, often rewards confrontation and character-based criticism over thoughtful discussion. The tone of the meme is subtly accusatory and reflective. It draws attention to the erosion of constructive communication without directly naming individuals or groups, making it a broad social critique. Although not overtly emotional, the meme implies dissatisfaction or concern with the current state of public debate."
+        "frame": "This meme uses the <Drake Hotline Bling> format to critique the shift from addressing substantive issues to attacking individuals directly. It contrasts two forms of argumentative behavior: rejecting topic-based discussion in favor of personal criticism. This mirrors the ad hominem strategy, where credibility is undermined by redirecting focus from the argument to the person. Structurally, the meme highlights this shift through visual opposition, reinforcing the irrational preference for personality-focused rhetoric. Its tone is ironic but revealing, capturing the way public discourse increasingly favors spectacle over substance when trying to discredit opponents."
       },
       {
         "template_name": "Outstanding Move",
@@ -36,7 +36,7 @@
         "template_id": "593767743",
         "template_structure": "Single-panel image showing a chessboard with the player mid-move and a caption labeling it as an 'Outstanding Move'.",
         "meme_output_json_structure": "{text0: 'Text describing the clever or ironic action', text1: 'Outstanding Move'}",
-        "frame": "This meme uses the <Outstanding Move> format to comment on seemingly brilliant yet questionably executed decisions. The setup typically shows an individual performing a counterintuitive or ironic action, immediately followed by a caption labeling it an 'Outstanding Move'. The format is versatile: it can genuinely admire cleverness or, more often, deploy heavy sarcasm to spotlight absurdity. Structurally, the meme relies on the juxtaposition of the action and the ironic praise to deliver humor. Its tone ranges from dry wit to biting satire, making it particularly effective in highlighting cognitive dissonance, logical fallacies, or social contradictions in a single, digestible image. It functions well as a tool of commentary, especially in contexts where actions speak louder than words—like politics, tech, or everyday social faux pas."
+        "frame": "This meme uses the <Outstanding Move> format to sarcastically praise actions that appear clever but are rooted in undermining someone’s character rather than addressing facts. It highlights situations where discrediting a person — through unrelated personal information, past deeds, or social cues — is framed as strategic brilliance. The humor lies in labeling reputation attacks as ‘moves’ in a game, underscoring how rhetorical debate often rewards manipulation over logic. The tone is dry and strategic, making it an effective tool to expose the insincerity behind ad hominem tactics."
       },
       {
         "template_name": "You Just Activated My Trap Card",
@@ -55,7 +55,7 @@
         "template_id": "31945629",
         "template_structure": "Two-part format: 1) A triggering action or dialogue in the top of the image; 2) A clever or unexpected counter-response in the bottom of the image under the man playing his card.",
         "meme_output_json_structure": "{text0: 'Triggering action or naive move by someone', text1: 'Counter-move or unexpected reaction'}",
-        "frame": "This meme leverages the iconic <You Just Activated My Trap Card> format from the *Yu-Gi-Oh!* anime to highlight the idea of concealed preparedness or surprise retaliation. It uses a setup-punchline structure, where the first text sets the stage with a perceived advantage or mistake and the second introduces the strategic reversal. The meme’s power lies in its dramatic irony and familiarity among internet users. It critiques overconfidence, naivety, or unawareness by portraying the counter-move as inevitable and premeditated. Emotionally, it oscillates between smug satisfaction and humorous vindication, often used to mock others’ miscalculations without being overtly hostile. Its effectiveness is enhanced by its association with strategy and childhood nostalgia, giving it layered cultural resonance."
+        "frame": "The <You Just Activated My Trap Card> meme captures the moment someone abandons rational debate in favor of personal retaliation. It reflects the ad hominem approach by portraying a defensive move that sidesteps the issue entirely and instead focuses on discrediting the other party. The setup-punchline format mirrors the rhetorical ‘trap’: when a participant challenges a claim, only to be hit with a personal insult or character judgment instead of an argument. The emotional tone is smug and vindicating, drawing attention to how quickly discussions devolve into reputation battles rather than evidence-based exchanges."
       },
       {
         "template_name": "Tuxedo Winnie The Pooh",
@@ -74,7 +74,7 @@
         "template_id": "178591752",
         "template_structure": "Two-panel format: 1) Regular Winnie the Pooh with a casual or basic phrase; 2) Tuxedo Pooh with a more sophisticated or exaggerated version of the same idea.",
         "meme_output_json_structure": "{text0: 'Simple or mundane statement', text1: 'Fancy, verbose, or pretentious version of the same statement'}",
-        "frame": "This meme uses the <Tuxedo Winnie The Pooh> format to humorously elevate a basic concept into an absurdly refined one. By contrasting casual language or behavior in the first panel with an exaggeratedly formalized version in the second, the meme spotlights pretentiousness, overengineering, or simply the joy of verbosity. The humor comes from the reader’s recognition of the unnecessary effort involved in the 'tuxedo' version. Its structure encourages intellectual play and sarcasm, often poking fun at academic language, corporate jargon, or elitist tendencies. The tone is playfully mocking, sometimes self-deprecating, and accessible to a wide audience due to its simplicity and relatability."
+        "frame": "The <Tuxedo Winnie The Pooh> meme highlights how arguments shift away from issues and toward personality-based ridicule, particularly targeting those who adopt overly sophisticated or elitist personas. It critiques the tendency to attack someone’s credibility not by disputing their ideas, but by mocking how they present themselves — their language, demeanor, or perceived arrogance. The meme structure uses visual contrast to underscore this mockery, turning social refinement into a point of ridicule. The tone is subtly derisive, positioning the meme as a tool for reputational takedown through stylistic elitism rather than substantive critique."
       }      
     ],
   
@@ -326,7 +326,7 @@
       }      
     ],
   
-    "Call": [
+    "Call to Action": [
       {
         "template_name": "SpongeBob Burning Paper",
         "meme_description": "This meme features SpongeBob SquarePants reading a sheet of paper with a directive or moral appeal, reacting with visible skepticism, and then happily burning it. The format is used to show someone rejecting emotionally manipulative or shallow calls to conform, and feeling satisfied for thinking independently instead.",
