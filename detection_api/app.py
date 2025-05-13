@@ -80,15 +80,16 @@ async def process_entry(entry, contextualizer: Contextualizer, auto=False):
     return entry
 
 # Define a function to process each entry in the analysis results
-async def process_entry_memeify(entry, memeifier: Memeifier, contextualizer: Contextualizer):
+async def process_entry_memeify(entry, category, memeifier: Memeifier, contextualizer: Contextualizer):
     entry["meme_contextualize_status"] = "success"
+    technique=category+": "+entry["explanation"]
 
     # Process the entry with the contextualizer
     try:
-        result = await contextualizer.process_statement(entry["location"], memeify=True)
+        result = await contextualizer.process_statement(entry["location"], memeify=True, technique=technique)
         if result["status"] == "success":
             entry["meme_contextualize_status"] = "success"
-            entry["meme_contextualize"] = result["output"]
+            entry["meme_contextualize"] = result["output"]          
         else:
             entry["meme_contextualize_status"] = "error"
             entry["meme_contextualize_error"] = result["error"]
@@ -98,6 +99,36 @@ async def process_entry_memeify(entry, memeifier: Memeifier, contextualizer: Con
         entry["meme_contextualize_error"] = f"Error: {str(e)}"
     
     # Process the entry with the memeifier
+    try: 
+        if entry["meme_contextualize_status"] == "success":
+            parsed_context = await memeifier.parse_context(entry["location"], entry["meme_contextualize"], technique)
+            selected_template_result = await memeifier.select_template(category, parsed_context["frame"])
+            if selected_template_result["status"] == "success":
+                entry["select_template_status"] = "success"
+                entry["template"] = selected_template_result["output"]
+            else:
+                entry["select_template_status"] = "error"
+                entry["template_error"] = selected_template_result["error"]
+    except Exception as e:
+        logging.error(f"An error occurred during selecting the best meme template: {e}", exc_info=True)
+        entry["select_template_status"] = "error"
+        entry["template_error"] = f"Error: {str(e)}"
+
+    try: 
+        if entry["select_template_status"] == "success":
+            template_name = entry["template"]["best_matching_template"]
+            meme = await memeifier.process_statement(parsed_context["statement"], parsed_context["context"], parsed_context["technique"], parsed_context["target"], parsed_context["frame"], template_name, category)
+            if meme["status"] == "success":
+                entry["meme_status"] = "success"
+                entry["meme"] = meme["output"]
+                entry["joke"] = meme["joke"]
+            else:
+                entry["meme_status"] = "error"
+                entry["meme_error"] = meme["error"]
+    except Exception as e:
+        logging.error(f"An error occurred during memeification: {e}", exc_info=True)
+        entry["meme_status"] = "error"
+        entry["meme_error"] = f"Error: {str(e)}"
     return entry
 
 
@@ -124,11 +155,9 @@ async def memeify(request, analysis_results):
         memeifier = Memeifier(model_name=request.model_name)
         contextualizer = Contextualizer(model_name=request.model_name)
         tasks = []
-
         for category, entries in analysis_results.items():
             for entry in entries:
-                tasks.append(process_entry_memeify(entry, memeifier, contextualizer))
-
+                tasks.append(process_entry_memeify(entry, category, memeifier, contextualizer))
         await asyncio.gather(*tasks)
         return True
     return False

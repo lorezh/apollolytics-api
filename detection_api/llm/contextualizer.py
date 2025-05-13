@@ -9,6 +9,7 @@ import pandas as pd
 from langchain import hub
 from langchain.agents import Tool
 from langchain.agents import create_react_agent, AgentExecutor
+from detection_api.llm.ressources.parsers import MemeParser
 from langchain_core.tools import BaseTool
 from llm.load_llm import load_llm
 
@@ -111,47 +112,151 @@ Thought:{agent_scratchpad}"""
     prompt.template = prompt_template
     return prompt
 
-def get_prompt_memeify(date, originator):
+def get_prompt_memeify(date, originator, technique):
     prompt = hub.pull("hwchase17/react")
 
-    prompt_template = """You are an expert contextualizer tasked to expanding and enriching understanding around potentially misleading statements to make sure users are safe and well informed.
-Your role is to provide balanced, accurate, concise, and helpful context about a given statement.
+    prompt_template = """You are an expert contextualizer and meme strategist tasked with expanding and enriching understanding around potentially misleading statements. Your mission is to ensure users are well-informed, factually grounded, and equipped with reliable material that may later support the creation of accurate, coherent, and impactful jokes or memes.
 
-You have access to the following tools for your research:
+## Your Role is Twofold:
+1. **Provide balanced, accurate, concise, and helpful context** about the given statement.
+2. **Analyze the statement for attacking points and humor-enabling information** 
+
+Apply your roles by following these steps precisely:
+
+### Disclaimer:
+** Do Not Generate a Joke Yourself:**  
+You are not tasked with creating or suggesting any joke, meme, or humorous content.  
+Your role is strictly to collect **reliable factual groundwork, criticisms, controversies, contradictions, and examples of existing ridicule**. This material is intended to inspire the **manual creation of a joke or meme later by a human writer.**
+
+### Step 1: Contextualise the statement
+Take on the first role described above and provide a precise, concise, and factual summary of the topic, incorporating context from the sources.
+- Investigate the statement **strictly in its original form**.  
+- Do not generalize, paraphrase, or broaden the research to similar claims.  
+- This output should be referenced as the **Context**.
+
+### Step 2: Search for Attacking Points and Humor Potential  
+- Based on the context you discovered, take on the second role described above and **search for additional attacking points** (such as contradictions, fun angles, controversies, falsehoods, scandals, hypocrisy, logical inconsistencies, or criticisms) that could be used for humor or meme creation and are:
+  - **Directly tied to the statement itself**,  
+  - Or **clearly related to the factual context you discovered around the statement**.  
+- Additionally, research whether **existing jokes, memes, satire, or public ridicule** have already been made: 
+  - About this exact statement itself (not similar claims, not related topics, but the exact claim in the exact same context as given),
+  - Or about the factual context you discovered regarding the statement.
+  The focus should be on examples where this particular statement, exactly as given, has already been mocked, satirized, or turned into humor by others.
+  Only include material if it clearly and directly references the statement or the discovered context. Ignore anything that is only broadly related.
+
+**Important Selection Criteria:**  
+- Only include attacking points, weak spots, contradictions, or examples of ridicule if they **directly refer to the statement itself or to the discovered context**.  
+- Disregard any material that relates only broadly to the topic but does not clearly connect to the specific statement or its contextual background.
+- If there are existing jokes, memes, satire, or public ridicule related to the statement or its context, describe in natural language the joke, meme, satire and why it's funny.
+
+### Step 3: Search for a Target 
+If the statement identifies a **target** (e.g., person, group, company, organization), you must:
+- Detect and define the **target**.
+- Research background information on the **target**.
+- Search for **fun angles, weaknesses, or contradictions** about the target that could be used for humor or meme creation.
+- Search for **attacking points, jokes, satire, public criticism, or memes** already circulating about the target.
+
+**Important Selection Criteria:**  
+- Only include attacking points, weak spots, contradictions, or examples of ridicule if they **directly refer to the target**.  
+- Disregard any material that relates only broadly to the target.
+- If there is no target, the target is not relevant or the target is not a person, group, company, or organization, you must state that there is no target.
+- If there are existing attacking points, jokes, satire, public criticism, or memes related to the target, describe in natural language the joke, meme, satire and why it's funny.
+
+### Step 4: Frame the Situation
+Your task is to create a structured and coherent frame that describes the overall situation surrounding the given statement. This frame serves as an objective, factual description of the environment in which the statement exists. The purpose of this frame is not to generate humor, but to provide a clear characterization of the situation that will later be used to match this environment against descriptions of meme templates and identify which meme style may fit best.
+The frame should accurately reflect the dynamics of the situation based on the following input data that you have gathered from the previous steps:
+
+- The main statement itself.
+- The propaganda technique in this case: {technique}.
+- The factual context explaining the background of the statement.
+- The attacking points and controversies found in the context.
+- Existing jokes, memes, or ridicule related to the context.
+- The target of the statement (if applicable).
+- Additional information about the target.
+- Attacking points and controversies related to the target.
+- Existing jokes, memes, or ridicule related to the target.
+
+**What the Frame Should Capture:**
+- The overall theme of the situation: What is the statement about? What key issues are involved?
+- The conflict structure: Are there attacks on specific groups, persons, or ideas? Is the statement defensive, aggressive, exaggerated, misleading?
+- The emotional tone: Is the situation emotionally charged, accusatory, defensive, fear-based, blame-focused, or moralizing?
+- The level of contradiction or controversy: How strongly is the statement or its context disputed? Are there significant opposing facts, scandals, or criticisms?
+- The vulnerability of the target (if present): Is the target in a strong or weak position? Are there exposed weak spots, scandals, or known criticisms?
+- The level of public ridicule already present: Have jokes, memes, or satire already addressed this statement, its context, or its target?
+
+**Style and Output Requirements for the frame:**
+- The frame must be neutral, objective, and descriptive.
+- Use clear, structured, and concise language.
+- Do not include humor, jokes, exaggeration, or irony.
+- Focus on providing an accurate environmental description that allows this situation to be meaningfully compared to descriptions of meme templates.
+
+### Tools at Your Disposal:
 <tools>
 {tools}
 </tools>
 
 You may use each tool up to three times.
 
-Use the following format:
+### Use the following format:
 
-Question: the input question you must answer
-Thought: you should always think about what to do
-Action: the action to take, should be one of [{tool_names}]
-Action Input: the input to the action
-Observation: the result of the action
-... (this Thought/Action/Action Input/Observation can repeat 3 times)
-Thought: I now have sufficient information to provide context for the user.
-Final Answer: The context demanded by the user.
+Question: the input question you must answer  
+Thought: you should always think about what to do  
+Action: the action to take, should be one of [{tool_names}]  
+Action Input: the input to the action  
+Observation: the result of the action  
+... (this Thought/Action/Action Input/Observation can repeat up to 3 times)  
+Thought: I now have sufficient information to provide context and aditional informations for the user to follow precisly and strictly each specified step according to the descriptions.  
+Final Answer: The full response demanded by the user respecting the response format.
 
-**Final Response Format:**
-- **Context:** (Provide a precise, concise, and factual summary of the topic, incorporating context from the sources)
-- **Joke:** (Write a joke or a funny comment about the statement, but make sure it is not offensive or inappropriate)
+## **Final Response Answer Format:**
+  context: 
+    - main_context: Result from Step 1 (Provide a precise, concise, and factual summary of the topic, incorporating reliable context from the sources)
+    - attacking_points: First part of the Result from Step 2 (Contradictions, fun angles, controversies, falsehoods, scandals, hypocrisy, logical inconsistencies, or criticisms directly tied to the statement or the context)
+    - existing_jokes: Second part of the Result from Step 2 (Already published jokes, memes, or satire clearly referring to the exact statement or context)
+  
+  target: 
+    - main_target: Who or what is the target of the statement, if any
+    - additional_information: Key facts, reputation, history of the target
+    - attacking_points: Criticism, weak points, public jokes, meme material already known
+    - existing_jokes: Already published jokes, memes, or satire clearly referring to the target
+  
+  frame: 
+    - main_frame: Result from Step 4 (A structured and coherent description of the situation)
 
-**Example Final Answer in case no results are found:**
-Context: No relevant information found.
-Joke: The statement may not be widely discussed or may not have been indexed by search engines.
+**Example Responses Answer if no Results are Found:** 
+  context: 
+    - main_context: No relevant information found.
+    - attacking_points: No relevant attacking points identified.
+    - existing_jokes: No existing jokes, memes, or ridicule found.
+  
+  target: 
+    - main_target: No target identified.
+    - additional_information: No information available.
+    - attacking_points: No attacking points found.
+    - existing_jokes: No existing jokes, memes, or ridicule found.
+  
+  frame: 
+    - main_frame: No material available to create a frame.
 
+**Example Response Answer:**  
+context: 
+    - main_context: On April 26, 2025, former U.S. President Donald Trump posted on his social media platform, Truth Social, expressing doubt about Russian President Vladimir Putin's willingness to end the war in Ukraine. In his post, Trump criticized recent Russian missile strikes on civilian areas, suggesting that Putin might not genuinely seek peace but could be manipulating the situation. Trump proposed that alternative strategies, such as 'banking' or 'secondary sanctions,' might be necessary to deal with Putin. This statement came just hours after Trump's meeting with Ukrainian President Volodymyr Zelenskyy at Pope Francis' funeral in the Vatican.
+    - attacking_points: Trump’s statement represents a significant shift from his previous approach, where he often avoided directly criticizing Putin and was accused of being overly accommodating toward Russia. The sudden change in tone, especially following his meeting with Zelenskyy, raises questions about the consistency and sincerity of his foreign policy positions. Additionally, Trump's suggestion of secondary sanctions contradicts his earlier skepticism toward punitive measures against Russia, highlighting potential inconsistencies in his stance.
+    - existing_jokes: While there are no specific jokes or memes directly referencing this particular statement, there is a long-standing body of satire portraying Trump as being excessively friendly or submissive toward Putin. Popular examples include cartoons showing Trump as a puppet controlled by Putin or portraying their relationship as an unbalanced friendship. These representations mock Trump's perceived deference to Putin and are relevant to the broader context of this statement.
+  
+  target: 
+    - main_target: Vladimir Putin
+    - additional_information: Vladimir Putin has served as the President of the Russian Federation for over two decades. Under his leadership, Russia launched a full-scale invasion of Ukraine in 2022, resulting in widespread international condemnation and severe economic sanctions. Putin has been held responsible for numerous human rights violations and attacks on civilian infrastructure during the conflict.
+    - attacking_points: Putin's credibility has been seriously undermined by repeated violations of ceasefire agreements and continued military aggression, particularly the targeting of civilian areas. Human rights organizations and international bodies have accused him of committing war crimes, further damaging his global reputation.
+    - existing_jokes: Putin is frequently the subject of satire and ridicule, often portrayed as a manipulative autocrat who disregards international law. Common meme themes include depictions of Putin as a dictator, as well as jokes highlighting the contrast between his strongman image and the reality of international isolation and criticism.
+  
+  frame: 
+    main_frame: The situation revolves around a public statement by former U.S. President Donald Trump, where he casts doubt on Russian President Vladimir Putin's intentions to end the war in Ukraine. Trump suggests that Putin may be deceiving him and proposes the use of financial restrictions or secondary sanctions as a response. This statement signifies a major departure from Trump's previous approach, where he often avoided directly criticizing Putin. The statement was made shortly after Trump's meeting with Ukrainian President Volodymyr Zelenskyy, during a time of heightened diplomatic efforts to resolve the conflict. The propaganda technique identified in this case is 'Attack on Reputation'. In this statement, Trump actively questions Putin’s credibility by implying that Putin is not sincere about peace negotiations and is instead manipulating the situation. This technique undermines Putin's trustworthiness and portrays him as deceitful and unreliable. The emotional tone of the situation is accusatory and skeptical, dominated by frustration over continued military aggression and perceived manipulation. The conflict structure involves a direct reputational attack on Putin without specifying personal hostility, focusing instead on his political behavior and intentions. The level of controversy is high, fueled by Trump's historically soft stance toward Putin, which contrasts with his current proposal of harsher measures such as secondary sanctions. This contradiction invites scrutiny of Trump's foreign policy consistency. The vulnerability of the target, Putin, is significant due to well-documented allegations of war crimes, violations of international law, and aggressive military actions against civilian targets. This increases the effectiveness of the 'Attack on Reputation' technique in this context. Public ridicule related to both Trump and Putin is already present. Jokes and memes frequently highlight their relationship, often portraying Trump as submissive or overly friendly toward Putin, and Putin as a manipulative autocrat. These existing cultural references reinforce the environment of reputational challenge and mistrust.
 
-**Example Final Answer:**  
-Context: Electric vehicles (EVs) produce fewer greenhouse gas emissions over their lifetime compared to gasoline-powered cars, according to studies. EVs emit no tailpipe emissions and are more efficient in energy use. However, their production, particularly the manufacturing of batteries, involves significant environmental impact due to energy-intensive processes and raw material extraction.
-Joke: Why did the electric car break up with the gas guzzler? Because it couldn't handle the emissions drama!
-    
 Begin your analysis now!
 
-Question:
-Contextualise the statement: '{statement}'{originator_section}{date_section}
+Question:  
+Process the statement acording to the specified steps: '{statement}'{originator_section}{date_section}  
 Thought:{agent_scratchpad}"""
     date_section = ""
     originator_section = ""
@@ -161,6 +266,7 @@ Thought:{agent_scratchpad}"""
         originator_section = " made by {originator}"
     prompt_template = prompt_template.replace("{date_section}", date_section)
     prompt_template = prompt_template.replace("{originator_section}", originator_section)
+    prompt_template = prompt_template.replace("{technique}", technique)
 
     prompt.template = prompt_template
     return prompt
@@ -230,7 +336,7 @@ class Contextualizer:
         results_lst = output.content.split("\n")
         return results_lst
 
-    async def process_statement(self, statement, date=None, originator=None, memeify=False):
+    async def process_statement(self, statement, date=None, originator=None, memeify=False, technique=None):
         """
         Processes a given statement to perform contextualization, utilizing both Google Custom Search and a language model.
 
@@ -258,14 +364,16 @@ class Contextualizer:
             description=google_description,
         )
 
-        prompt = get_prompt_memeify(date, originator) if memeify else get_prompt(date, originator)
+        prompt = get_prompt_memeify(date, originator, technique) if memeify else get_prompt(date, originator)
+        output_parser = MemeParser() if memeify else None
 
         try:
             tools = [google_private]
             agent = create_react_agent(self.llm,
                                        tools,
                                        prompt,
-                                       tools_renderer=render_text_description)
+                                       tools_renderer=render_text_description,
+                                       output_parser=output_parser,)
             agent_executor = AgentExecutor(agent=agent,
                                            tools=tools,
                                            verbose=False,
