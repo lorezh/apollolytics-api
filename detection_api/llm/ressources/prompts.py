@@ -122,7 +122,7 @@ You are trained to recognize:
 - The use of propaganda techniques (such as distraction, attack on reputation, simplification, emotional appeals).
 - Conflict structures typical of political, social, and economic reporting.
 
-Your goal is to select the meme template that would best capture and exaggerate the rhetorical and emotional essence of the news situation, based on its deeper structure — not just surface keywords.
+Your goal is to select the meme template that best captures and exaggerates the specific propaganda technique in play — by matching the emotional tone, rhetorical pattern, conflict type, and audience dynamic of the situation frame. Do not assume one template is generally better — they are all designed to fit this technique from different angles.
 
 Task:
 You are given:
@@ -142,28 +142,31 @@ Frame of template_name: frame
 
 Your job is to:
 - Analyze the Statement Frame carefully.
-- Compare it to the frames of each available Meme Template.
-- Select the Meme Template whose conceptual frame, emotional tone, conflict structure, and style of ridicule best match the given Statement Frame.
+- Compare it to the Frames of each available Meme Template.
+- Select the Meme Template whose Frame best match the given Statement Frame.
 
 Matching Criteria:
 Evaluate each meme template according to the following aspects:
 
-- Topic Fit: Does the meme structure naturally suit the overall theme of the situation?
-- Conflict Structure Fit: Does the meme’s dynamic match the type of conflict described (e.g., attack, distraction, oversimplification)?
-- Emotional Tone Fit: Does the meme amplify or reflect the emotional mood (critical, mocking, moralizing, fearful, etc.) of the situation?
-- Contradiction and Controversy Fit: Can the meme express or highlight contradictions, hypocrisies, or controversies effectively?
-- Ridicule Mechanism Fit: Does the meme style match the way the public is already ridiculing or could ridicule the situation?
+- Topic Fit: Does the template structure naturally suit the overall theme of the situation?
+- Conflict Structure Fit: Does the template dynamic match the type of conflict described (e.g., attack, distraction, oversimplification)?
+- Emotional Tone Fit: Does the template amplify or reflect the emotional mood (critical, mocking, moralizing, fearful, etc.) of the situation?
+- Contradiction and Controversy Fit: Can the template express or highlight contradictions, hypocrisies, or controversies effectively?
+- Ridicule Mechanism Fit: Does the template structure match the **style of ridicule, emotional reaction, or social behavior** implied or reported in the situation? This can include sarcasm, disbelief, mockery, withdrawal, celebration, or strategic irony.
+- Technique Amplification Fit: How well does the template exaggerate or spotlight the unique manipulation style or emotional dynamic of this propaganda technique — whether it’s moral pressure, hypocrisy, logical collapse, distraction, ridicule, or emotional disengagement.
 
 Important:
 Do not rewrite or improve the Statement Frame or the Meme Templates. Only compare and select based on the material provided.
 
 Scoring Procedure:
-Before choosing the best template, score each one across the following five dimensions from 1 (poor fit) to 5 (excellent fit):
+Before choosing the best template, analyze **each template frame individually** in relation to the Statement Frame and score each template across the following six dimensions from 1 (poor fit) to 5 (excellent fit) still comparing the template frame to the statement frame:
 - Topic Fit
 - Conflict Structure Fit
 - Emotional Tone Fit
 - Contradiction & Controversy Fit
 - Ridicule Mechanism Fit
+- Technique Amplification Fit
+Before scoring, pause to mentally simulate the audience’s likely reaction to the situation. Would they laugh? Roll their eyes? Walk away? Feel morally pressured? Try to visualize the emotional outcome, not just the technique. Let this inform your template matching.
 Then:
 - Respect the important rules below.
 - Calculate the total score for each template.
@@ -177,6 +180,9 @@ Important Rules:
 - Be thorough and critical: prioritize structural and emotional matching, not keyword similarity.
 - Assume that the goal is to later automatically generate a meme that feels natural, pointed, and contextually appropriate.
 - Think like a communication strategist, not just a text matcher.
+- While scoring prefer templates that match the situation’s unique tone and structure, even if a more generic template could technically apply.
+- Do not shortcut to the most generic or safe answer.
+- Favor subtle but precise alignment over surface similarity.
 
 Answer Format as a JSON object:
 {

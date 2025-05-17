@@ -55,7 +55,7 @@
         "template_id": "31945629",
         "template_structure": "Two-part format: 1) A triggering action or dialogue in the top of the image; 2) A clever or unexpected counter-response in the bottom of the image under the man playing his card.",
         "meme_output_json_structure": "{text0: 'Triggering action or naive move by someone', text1: 'Counter-move or unexpected reaction'}",
-        "frame": "The <You Just Activated My Trap Card> meme captures the moment someone abandons rational debate in favor of personal retaliation. It reflects the ad hominem approach by portraying a defensive move that sidesteps the issue entirely and instead focuses on discrediting the other party. The setup-punchline format mirrors the rhetorical ‘trap’: when a participant challenges a claim, only to be hit with a personal insult or character judgment instead of an argument. The emotional tone is smug and vindicating, drawing attention to how quickly discussions devolve into reputation battles rather than evidence-based exchanges."
+        "frame": "The <You Just Activated My Trap Card> meme highlights rhetorical dynamics where a participant responds to criticism not by engaging with the argument, but by shifting attention back onto the critic. Rather than addressing the topic at hand, the responder counters with a pointed remark that exposes a contradiction, hypocrisy, or vulnerability in their opponent. This move often shifts the power dynamic in the conversation and serves to discredit the other party in a sudden and revealing way. The tone is confrontational but composed, and the structure mimics a reversal—where a seemingly strong position backfires due to the unexpected counter."
       },
       {
         "template_name": "Tuxedo Winnie The Pooh",
@@ -97,7 +97,7 @@
         "template_id": "30170774",
         "template_structure": "Single-panel image showing a person (Ken Jeong as Ben Chang) squinting at a tiny object, overlaid with a caption describing what they're supposedly looking for.",
         "meme_output_json_structure": "{text0: 'Sarcastic or ironic description of the barely-there thing being examined'}",
-        "frame": "This meme format uses <Tiny piece of paper> to satirize the act of searching for value, effort, or results where they barely exist. It's a minimalist, text-only overlay style where the joke rests entirely in the caption’s absurdity. The humor emerges from the visual exaggeration of squinting at almost nothing — paired with mundane disappointments like failed goals, hollow statements, or imaginary progress. The meme is both self-deprecating and observational, making it perfect for social commentary, productivity humor, or poking fun at flimsy excuses and broken systems."
+        "frame": "The <Tiny Piece of Paper> meme format targets situations where the justification is not just weak, but invisible, tokenistic, or laughably minimal — the kind that feels like a placeholder rather than a serious attempt to explain. It applies best when someone makes a bold claim or policy, and then backs it with something so minor, symbolic, or irrelevant that the audience would have to squint (metaphorically) to even detect its connection. The visual of squinting at something tiny delivers immediate irony. The tone is sarcastic and observational."
       },
       {
         "template_name": "SpongeBob Ight Imma Head Out",
@@ -114,10 +114,10 @@
           "Frequently used in digital culture to represent the urge to quit, ghost, or disappear."
         ],
         "empty_template_image": "https://imgflip.com/memetemplate/Spongebob-Ight-Imma-Head-Out",
-        "template_id": "226297822",
+        "template_id": "196652226",
         "template_structure": "Single-panel image with SpongeBob standing up from a chair, typically captioned with a statement that prompts immediate withdrawal or avoidance.",
         "meme_output_json_structure": "{text0: 'Description of a situation or phrase that makes someone want to leave immediately'}",
-        "frame": "The <SpongeBob Ight Imma Head Out> meme format represents a universal desire to avoid discomfort, confrontation, or obligation. It thrives on the comedic tension between a calm appearance and the internal decision to flee. Visually minimalist and textually flexible, the meme works well as a punchline to social or professional pet peeves. Its popularity lies in its directness — the caption sets up a triggering situation, and SpongeBob’s body language provides the perfect visual metaphor for emotional or physical retreat. The tone is typically humorous, weary, or sarcastic, making it especially potent in memes about adulting, meetings, customer service, and social awkwardness."
+        "frame":"The <SpongeBob Ight Imma Head Out> meme format captures moments when a justification is so irrelevant, anticlimactic, or casually absurd that it immediately drains credibility. Instead of provoking debate, the explanation triggers quiet emotional withdrawal — a sense of “this isn’t even worth arguing.” The logic is often so unrelated or disappointingly weak that the only natural response is to mentally check out. This format works best when a decision is justified with something that’s not technically offensive, but so unserious or disconnected from expectations that it causes disengagement. The tone is weary, flat, and unimpressed — it reflects internal eye-rolling, a mental sigh, or the urge to simply leave the conversation without protest."
       },
       {
         "template_name": "Half Badly Drawn Horse",
@@ -137,7 +137,7 @@
         "template_id": "159092363",
         "template_structure": "Two-panel horizontal format: left side features a detailed drawing (captioned with a strong or promising phase), right side features a crude sketch (captioned with a weak or rushed phase).",
         "meme_output_json_structure": "{text0: 'Strong or high-effort beginning', text1: 'Weak, rushed, or low-effort ending'}",
-        "frame": "This meme uses the <Half Badly Drawn Horse> format to visually and textually contrast high effort with minimal effort. The left side symbolizes ambition, planning, or professional polish; the right side, comedic failure or burnout. It’s particularly effective for timeline-based humor and critiques, such as essay writing, product launches, or TV show arcs. The humor stems from how relatable and visual the drop in quality is, delivering instant irony. The tone is sarcastic or self-aware, often making light of universal experiences like procrastination, declining motivation, or rushed conclusions."
+        "frame": "The <Half Badly Drawn Horse> meme format captures the rhetorical inconsistency in arguments that start strong but collapse into flimsy or inadequate justifications. It is structured to visually express the loss of coherence — where the first half of an argument is serious, impressive, or emotionally persuasive, but the second half offers a weak, rushed, or obviously insufficient explanation. This contrast exposes how even confident or elaborate claims can be undermined by a simplistic or shallow follow-up. The tone is self-aware, ironic, and especially effective when time, quality, or intellectual effort declines mid-argument."
       },
       {
         "template_name": "Third World Skeptical Kid",
@@ -157,7 +157,7 @@
         "template_id": "101288",
         "template_structure": "Single-panel image with text mimicking a sarcastic or skeptical response to an absurd or privileged statement, typically formatted as a single sarcastic question or a paraphrased critique.",
         "meme_output_json_structure": "{text0: 'Sarcastic or skeptical interpretation of a questionable statement or logic'}",
-        "frame": "The <Third World Skeptical Kid> meme format functions as a visual critique of flawed reasoning or out-of-touch behavior. The child's skeptical expression gives voice to unspoken but obvious doubt, making it a powerful tool for irony and social commentary. The caption typically embodies the boy’s internal monologue, calling out hypocrisy or incredulity in what’s being implied or said by someone else. It’s especially effective in conversations about privilege, workplace politics, marketing jargon, and virtue signaling. The tone is sharp, sarcastic, and often delivers a mic-drop moment using only a single line."
+        "frame": "The <Third World Skeptical Kid> meme format captures the moment when a justification, though presented as logical or well-meaning, reveals itself to be flawed, out-of-touch, or subtly absurd. It thrives in contexts where the explanation sounds more like a cover or a stretch than genuine reasoning. Instead of engaging directly, the meme reflects a skeptical pause — a raised eyebrow at logic that doesn’t add up. It is especially effective when a supposedly rational argument fails under basic scrutiny. The tone is sharply critical and ironic, delivering disbelief in a single, skeptical punchline."
       }      
     ],
   
@@ -179,7 +179,7 @@
         "template_id": "221169597",
         "template_structure": "Two-text format: 1) Top caption describes the distraction or surface narrative; 2) Bottom caption reveals the real issue being concealed or ignored.",
         "meme_output_json_structure": "{text0: 'Distraction or superficial argument (top text)', text1: 'Real issue or truth being revealed (bottom text)'}",
-        "frame": "The <Rick Rips Wallpaper> meme format visualizes the act of exposing rhetorical distraction. It critiques a common manipulation technique: redirecting attention away from inconvenient or challenging subjects toward more palatable or emotional topics. The meme uses visual storytelling — Rick literally tearing back a layer — to symbolize uncovering suppressed or ignored realities. The top caption mirrors the distraction that someone wants the audience to focus on, while the bottom caption delivers the actual topic or truth they’re avoiding. This structure makes the meme a potent tool for satire and social critique, with a tone that is analytical, ironic, and revealing."
+        "frame": "The <Rick Rips Wallpaper> meme format visualizes distraction as a **conscious, strategic cover-up** — where a surface narrative or flashy topic is used to **hide** or **redirect attention away from a more serious underlying issue**. It fits best when a statement or policy **presents an emotionally charged or convenient justification**, while actively **concealing contradictions, deeper causes, or inconvenient truths** beneath it. The tone is investigative, ironic, and uncovering. This meme does not apply to every shift of attention — it specifically fits when the **distraction appears deliberate and the hidden issue is substantially more important than what's being shown**."
       },
       {
         "template_name": "Minding My Own Business (Burning House)",
@@ -199,7 +199,7 @@
         "template_id": "137844938",
         "template_structure": "Single-panel image: foreground shows a woman nonchalantly walking with a stroller while the background house is on fire — overlaid with a caption describing what is being ignored or minimized.",
         "meme_output_json_structure": "{text0: 'Caption describing what’s being ignored, trivialized, or handled casually despite chaos'}",
-        "frame": "The <Minding My Own Business (Burning House)> meme format humorously illustrates cognitive dissonance or ironic indifference in the face of crisis. The stark visual contrast between disaster and calm detachment makes it a compelling metaphor for modern coping mechanisms, bureaucratic negligence, or social apathy. The meme’s impact comes from exaggerating real-world tendencies to downplay or avoid uncomfortable realities. Its tone is darkly comedic and often self-aware, resonating strongly with audiences facing burnout, global crises, or cultural absurdities."
+        "frame": "The <Minding My Own Business (Burning House)> meme format illustrates distraction by showcasing calm or routine behavior in the face of an obvious crisis. Unlike other distraction formats, it emphasizes **inaction**, **avoidance**, or **denial** rather than redirection. It’s ideal for situations where the problem is visible and urgent, yet those responsible behave as if nothing is happening. The tone is absurd and dry — capturing the contrast between looming disaster and bureaucratic or personal indifference. This works especially well when authorities respond to serious issues with trivial updates or announcements that reflect misplaced focus."
       },      
       {
         "template_name": "Distracted Boyfriend",
@@ -219,7 +219,7 @@
         "template_id": "112126428",
         "template_structure": "Three-label format: 1) Passing woman (distraction or new temptation), 2) Boyfriend (subject of attention shift), 3) Girlfriend (original focus or responsibility).",
         "meme_output_json_structure": "{text0: 'New or tempting distraction', text1: 'Person or entity whose attention is shifting', text2: 'Original or proper focus'}",
-        "frame": "The <Distracted Boyfriend> meme format is a classic visual metaphor for distraction, temptation, and shifting priorities. It uses clear visual storytelling: a central character (the boyfriend) turns away from his current obligation or relationship (the girlfriend) toward something new and appealing (the other woman). The humor comes from the relatability of being sidetracked, often in self-deprecating or socially critical contexts. The format is highly adaptable and instantly recognizable, making it effective for everything from pop culture jabs to organizational satire. Its tone ranges from playful to sarcastic, depending on the labels applied."
+        "frame": "The <Distracted Boyfriend> meme visualizes distraction as a **conscious shift of attention** from the main topic to a more attractive or emotionally resonant diversion. The meme labels the boyfriend as the subject (e.g. media, public, institution), the girlfriend as the original issue, and the new woman as the distraction. It is structurally ideal for showing how narratives, public opinion, or priorities are redirected — often to avoid uncomfortable truths or to draw attention to something more palatable. The tone is ironic and socially aware, making it perfect for satire that critiques willful misdirection."
       },      
       {
         "template_name": "Left Exit 12 Off Ramp",
@@ -239,7 +239,7 @@
         "template_id": "124822590",
         "template_structure": "Three-text format: 1) text0 goes on the straight highway sign (the expected path); 2) text1 goes on the exit sign (the impulsive choice); 3) text2 labels the car making the sharp exit.",
         "meme_output_json_structure": "{text0: 'Expected or responsible choice', text1: 'Impulsive or illogical decision', text2: 'Who or what is making the choice'}",
-        "frame": "The <Left Exit 12 Off Ramp> meme is structured around contrast and sudden divergence. The setup represents a fork in the road between a reasonable, expected action and a sudden, emotionally driven or irrational detour. The punchline comes from who is making the swerve and what they're choosing to do instead. The tone is often self-deprecating, ironic, or sarcastic, making it perfect for portraying procrastination, bad habits, and human contradictions. It's widely relatable due to its simple visual metaphor and clear mapping to everyday decisions."
+        "frame": "The <Left Exit 12 Off Ramp> meme format captures the moment when a discussion or narrative takes a sudden, illogical turn — often abandoning a relevant or serious topic in favor of a safer, unrelated, or emotionally driven one. The format works best when the redirection is abrupt or irrational. The meme highlights impulsive avoidance: instead of engaging with the issue, the speaker or institution diverts attention to something trivial or off-topic. The tone is abrupt, ironic, and often chaotic — emphasizing the dissonance between what should be discussed and where the focus suddenly goes."
       }      
     ],
   
@@ -262,7 +262,7 @@
         "template_id": "302665451",
         "template_structure": "Two-panel side-by-side image: text0 goes over the left panel (representing the complex or serious reality); text1 goes over the right panel (an oversimplified or symbolic fix).",
         "meme_output_json_structure": "{text0: 'The real, multifaceted issue', text1: 'The oversimplified or performative solution'}",
-        "frame": "The <Horse Bannister> meme format is ideal for critiquing simplification. By juxtaposing the richly detailed reality of a problem with a crude, superficial response, it visually mocks the inadequacy of such simplifications. The humor lies in the absurd contrast—often exposing how some solutions are more about appearances than impact. The tone is ironic, often exasperated, making it a powerful tool for calling out greenwashing, shallow policy, or feel-good corporate gestures that fall short of meaningful change."
+        "frame": "The <Horse Bannister> meme format critiques symbolic or aesthetic gestures that attempt to address complex social or institutional problems. It highlights how superficial changes — like slogans, branding, or gestures — can be presented as meaningful reform while avoiding deeper action. This format is best when simplification happens through tone-deaf symbolism, especially in bureaucratic or design-driven settings. The tone is dry, visual, and ironic."
       },
       {
         "template_name": "Train Tracks",
@@ -282,7 +282,7 @@
         "template_id": "593727876",
         "template_structure": "Two-panel image: text0 overlays the left image of straight train tracks (representing a simplistic or idealized view), while text1 overlays the right image of tangled tracks (representing the actual complexity).",
         "meme_output_json_structure": "{text0: 'Overly simplified version of a complex issue', text1: 'The real, complex and messy reality'}",
-        "frame": "The <Train Tracks> meme format critiques simplification by contrasting a neat, naive narrative with the intricate, interconnected realities it tries to flatten. The left panel offers a clear, falsely linear interpretation, while the right panel reveals a web of contributing factors, unknowns, and systemic interdependencies. This structure provides a visually immediate way to expose why 'simple answers' often fail — with a tone that ranges from sarcastic to enlightening."
+        "frame": "The <Train Tracks> meme format reveals the gap between simplified policy logic and real-world complexity. It works best when a solution is presented as linear, inevitable, or binary — but reality is tangled and chaotic. This template is ideal for exposing oversimplified reasoning in political or economic contexts, where logic is used to hide real-life complications. The tone is skeptical and explanatory."
       },
       {
         "template_name": "Flex Tape",
@@ -302,7 +302,7 @@
         "template_id": "166969924",
         "template_structure": "Three-part format: text0 labels the serious issue (leaking tank), text1 labels the oversimplified solution (Flex Tape), and text2 labels the person or entity applying the fix.",
         "meme_output_json_structure": "{text0: 'The serious or systemic problem', text1: 'The superficial or symbolic fix', text2: 'The person or group offering the fix'}",
-        "frame": "The <Flex Tape> meme format visualizes simplification through comedic exaggeration. By labeling the tank with a real-world issue and the tape with a shallow fix, it critiques the disconnect between real-world complexity and the often symbolic, feel-good responses offered in its place. The person applying the tape represents the decision-makers, institutions, or influencers who promote such oversimplifications. The humor lies in the bold confidence of the action compared to the obvious inadequacy of the fix. The tone is biting, visual, and instantly relatable."
+        "frame": "The <Flex Tape> meme format critiques simplification by visually dramatizing a mismatch between a **catastrophic, visibly failing system** and an **absurdly simplistic, performative fix**. The leaking tank represents an issue that is not just complex, but **actively collapsing in plain sight**—often involving physical breakdown, public scandal, or crisis metrics. The Flex Tape represents a slapstick-style gesture: typically a PR stunt, slogan, or media-friendly band-aid meant to look like action. The person applying the tape symbolizes an actor (usually an institution or politician) who **pretends the fix is working**, even as failure continues. This meme works best when a serious breakdown is met with exaggerated optimism, media spin, or denial wrapped in confident presentation. The tone is exaggerated, theatrical, and mocks both the fix and the arrogance behind pretending the job is done. It is not suited for subtle inaction, passive symbolic measures, or minor oversimplifications — it requires a sense of **urgent crisis met with comic incompetence**."
       },
       {
         "template_name": "Khaby Lame Reaction",
@@ -322,7 +322,7 @@
         "template_id": "322398912",
         "template_structure": "Two-part format: text0 describes a complex or systemic problem; text1 gives a reductive or symbolic solution — Khaby Lame's pose underscores the absurdity.",
         "meme_output_json_structure": "{text0: 'The real, complicated problem', text1: 'The oversimplified or performative solution'}",
-        "frame": "The <Khaby Lame Reaction> meme format humorously critiques simplification. It works by pairing a serious, layered problem with an overly simple, often performative fix — then visually reinforcing the mismatch with Khaby’s classic 'really?' gesture. The meme’s tone is ironic, deflationary, and visually intuitive — making it effective for calling out solutions that sound good but ignore reality."
+        "frame": "The <Khaby Lame Reaction> meme format mocks the mismatch between serious problems and naïve or smugly simple answers. It fits situations where someone confidently proposes a fix that is laughably disconnected from the scale, emotion, or context of the issue — especially when spoken with a 'this should be enough' attitude. The tone is deadpan and sarcastic — the meme works best when the proposal is technically plausible but socially or emotionally tone-deaf."
       }      
     ],
   
@@ -345,7 +345,7 @@
         "template_id": "139971723",
         "template_structure": "Three key labels: text0 appears on the paper (the persuasive message), text1 shows SpongeBob's skeptical reaction, and text2 appears in the final panel as he smiles after burning the message — signifying relief or independence.",
         "meme_output_json_structure": "{text0: 'Directive or emotional slogan', text1: 'Skeptical or critical reaction', text2: 'Joyful rejection or return to self-thought'}",
-        "frame": "The <SpongeBob Burning Paper> meme highlights the moment when someone recognizes a persuasive or moral call as shallow, coercive, or irrational — and chooses to reject it. Visually, it contrasts the weight of the message with the lightness of letting it go. The tone is playful, subversive, and liberating — making it a perfect format for celebrating independent thought in the face of social pressure."
+        "frame": "The <SpongeBob Burning Paper> meme format critiques calls to action that rely on emotional appeal, moral slogans, or coercive language rather than reasoning. It captures the moment someone receives a directive — framed as virtuous or urgent — then evaluates it critically and ultimately rejects it. The final panel, showing joy or liberation, emphasizes the relief of thinking independently rather than conforming. The structure reinforces how calls to action can pressure individuals into groupthink or performative behavior. The meme’s tone is liberating, subversive, and celebrates self-guided thought in the face of mass messaging."
       },
       {
         "template_name": "Box Trap (Victim Version)",
@@ -365,7 +365,7 @@
         "template_id": "210975876",
         "template_structure": "Two-part format: text0 appears on the trap (the bait or persuasive message), and text1 labels the person walking toward it (the target or believer).",
         "meme_output_json_structure": "{text0: 'Emotionally persuasive or moral slogan', text1: 'Person or group being drawn in by it'}",
-        "frame": "The <Box Trap> meme format illustrates how people can be pulled into actions or beliefs by emotionally appealing messages that disguise hidden agendas. The bait message draws people in, while the visual irony lies in watching someone unknowingly walk into a trap. The tone is satirical and cautionary — often calling for more critical thinking in response to trendy, moralistic, or oversimplified messaging."
+        "frame": "The <Box Trap> meme format visualizes how persuasive calls to action can function as traps — drawing individuals in with emotional or moral bait while hiding ideological pressure or social consequences. The box represents the directive, framed as noble or empowering. The person walking toward it symbolizes someone responding uncritically, unaware of what lies beneath. The humor and critique come from recognizing how such calls manipulate social belonging or moral obligation without offering actual arguments. The tone is ironic and cautionary, exposing how emotionally charged appeals can bypass critical thinking."
       },      
       {
         "template_name": "Surprised Joey",
@@ -385,7 +385,7 @@
         "template_id": "231948831",
         "template_structure": "Two-panel format: text0 is placed over the first frame (naive or confident acceptance), and text1 over the second frame (alarmed or skeptical realization).",
         "meme_output_json_structure": "{text0: 'Initial persuasive message or moral call', text1: 'Surprising or problematic implication that follows'}",
-        "frame": "The <Surprised Joey> meme format uses visual contrast to show how quickly agreement with a persuasive message can turn into confusion or regret. The first panel reflects a moment of trust or social pressure, while the second reveals the flawed logic, coercion, or consequence behind the message. It’s a simple but powerful way to critique how slogans and calls often mask complexity, inviting viewers to reconsider what they’re agreeing to. The tone is humorous, ironic, and revealing."
+        "frame": "The <Surprised Joey> meme format critiques calls to action that initially sound appealing or harmless, but reveal problematic implications upon closer inspection. The first panel reflects uncritical acceptance — driven by social pressure, idealism, or emotional alignment. The second panel delivers the twist: a realization that the directive carries hidden costs, contradictions, or coercive undertones. This meme highlights how persuasive slogans often mask uncomfortable truths. The tone is ironic and skeptical, making it ideal for revealing how calls to action can disguise deeper ideological control."
       },      
       {
         "template_name": "Trojan Horse",
@@ -405,7 +405,7 @@
         "template_id": "144961820",
         "template_structure": "Four-part format: text0 goes on the outside of the horse (the noble or persuasive message), text1 goes inside the horse (the hidden agenda), text2 labels the gate or building (the target audience), and text3 labels the people pulling the horse (the source of the message).",
         "meme_output_json_structure": "{text0: 'Call to act or believe', text1: 'Hidden belief or motive', text2: 'Who is being targeted or influenced', text3: 'Who is spreading the message'}",
-        "frame": "The <Trojan Horse> meme format uses visual metaphor to contrast an appealing outer message with a hidden inner motive. The horse represents a message that looks noble, encouraging, or harmless on the surface, while its interior reveals a deeper agenda or consequence. By labeling the people pulling the horse, the structure also shows who is delivering the message and who is being influenced. This format effectively illustrates the gap between what is presented and what is actually introduced — with a tone that is ironic, critical, and reflective."
+        "frame": "The <Trojan Horse> meme format illustrates how calls to action can be used to disguise ulterior motives, smuggling ideology, control, or coercion beneath a noble-sounding message. The horse represents the persuasive surface — a slogan, campaign, or moral directive — while the interior contains the hidden agenda. The labels on the target and source expose who is being influenced and by whom. The meme critiques how emotionally appealing calls are used not to persuade with logic, but to normalize ideological positions under the guise of collective good. The tone is analytical and ironic, effective for exposing institutional manipulation."
       }
     ],
   
@@ -429,7 +429,7 @@
         "template_id": "246078781",
         "template_structure": "Three-part format: text0 labels the red button (the emotionally manipulative choice), text1 labels the blue button (the neutral or reasonable alternative), and text2 labels the person or group eagerly pressing the red button.",
         "meme_output_json_structure": "{text0: 'Emotionally charged or manipulative wording', text1: 'Neutral or accurate alternative', text2: 'Who chooses the manipulative option'}",
-        "frame": "The <Robotnik Pressing Red Button> meme humorously illustrates the active preference for exaggerated, manipulative language over clear, balanced communication. The top frame shows two rhetorical options; the bottom reveals the enthusiastic choice to favor emotional influence. It’s an ideal format for satirizing how media, politics, or influencers frame issues in a way that’s designed to provoke rather than inform. The tone is knowingly ironic and pointed."
+        "frame": "The <Robotnik Pressing Red Button> meme format critiques how decision-makers deliberately choose emotionally manipulative or dramatic language **when they are explicitly offered a neutral alternative**. The red button symbolizes an intentional, conscious choice for provocation over clarity — such as editors, politicians, or influencers opting for fear, outrage, or hyperbole to drive clicks, panic, or loyalty. The format only applies when the exaggerated phrasing is shown as a **direct rhetorical choice**, not just when dramatic language is present. The tone is satirical and judgmental, highlighting the active role of institutions or actors in escalating discourse despite having more accurate alternatives."
       },
       {
         "template_name": "SpongeBob Hypnotized",
@@ -449,8 +449,8 @@
         "empty_template_image": "https://imgflip.com/memetemplate/168082128/Spongebob-Hypnotized",
         "template_id": "168082128",
         "template_structure": "Single-panel format: text0 overlays the image, representing the emotionally manipulative or overused phrasing that has mentally captured the subject.",
-        "meme_output_json_structure": "{text0: 'Emotionally loaded or repetitive phrasing causing mental overload or passivity'}",
-        "frame": "The <SpongeBob Hypnotized> meme format satirizes how emotionally charged or repetitive wording can induce a trance-like state where people stop thinking critically. The meme works by visually conveying mental fatigue or brainwashing caused by language meant to provoke instead of inform. Its tone is ironic and cautionary — well-suited to call out manipulative discourse in media, activism, or politics."
+        "meme_output_json_structure": "{text1: 'Emotionally loaded or repetitive phrasing causing mental overload or passivity'}",
+        "frame": "The <SpongeBob Hypnotized> meme format visualizes how a person becomes mentally saturated or passively overwhelmed by emotionally manipulative wording through repetition, intensity, or mantra-like slogans. This meme captures not deliberate acceptance or sudden escalation, but the gradual numbing effect of constant buzzwords, dramatic superlatives, or repeated alarmist language that wears down critical resistance. The tone is hypnotic, dazed, or fatigued — not angry or alarmed. It applies best when the propaganda technique doesn't target logic directly, but instead suppresses it through overload."
       },
       {
         "template_name": "Triggered Thomas",
@@ -471,7 +471,7 @@
         "template_id": "209801552",
         "template_structure": "Single-panel image: text0 is overlaid or implied as the phrase that caused the emotional discomfort or ironic overreaction represented by Thomas’s face and the 'TRIGGERED' label.",
         "meme_output_json_structure": "{text0: 'The emotionally manipulative phrase causing the awkward or disproportionate reaction'}",
-        "frame": "The <Triggered Thomas> meme format captures the ironic mismatch between the power of manipulative wording and the awkwardness of actually hearing it. It mocks the moment when someone is expected to respond emotionally to a dramatic phrase — but instead just feels weirded out or slightly alarmed. The tone is sarcastic, understated, and observational, making it ideal for calling out loaded language that tries too hard to control the audience's emotions."
+        "frame": "The <Triggered Thomas> meme format critiques how emotionally manipulative phrases — especially those implying guilt, moral obligation, or social judgment — provoke subtle discomfort or ironic detachment. Instead of outrage or full indoctrination, the reaction is stunned confusion, awkward silence, or a quiet internal eye-roll. The meme captures the mismatch between the **emotional weight** of a phrase and the **audience’s awkward realization** that they’re being emotionally steered. It’s ideal for calling out phrases designed to sound righteous or urgent, but that trigger discomfort due to their pushiness or moral pressure."
       },
       {
         "template_name": "Mr. Incredible Becoming Uncanny",
@@ -492,7 +492,7 @@
         "template_id": "334800534",
         "template_structure": "Two-panel horizontal format: text0 overlays the calm Mr. Incredible (reasonable statement), text1 overlays the uncanny version (manipulatively rephrased or emotionally escalated version).",
         "meme_output_json_structure": "{text0: 'Rational or cautious original statement', text1: 'Emotionally manipulative or exaggerated response'}",
-        "frame": "The <Mr. Incredible Becoming Uncanny> meme format uses visual contrast to highlight how language transforms from measured and thoughtful to extreme and emotionally loaded. It critiques the shift from nuance to manipulation, showing how calm observations are often drowned out by sensationalism or ideological overreach. The tone is ironic, critical, and reflective — ideal for mocking rhetorical escalation."
+        "frame": "The <Mr. Incredible Becoming Uncanny> meme format captures the rhetorical shift from calm, neutral discussion to alarmist, binary, or emotionally loaded language. The emotional manipulation doesn’t rely on repetition or guilt, but on how tone or phrasing dramatically changes to distort or polarize an otherwise reasonable idea. The tone is unsettling — it critiques how discourse becomes radicalized mid-conversation."
       }           
     ]
 }
